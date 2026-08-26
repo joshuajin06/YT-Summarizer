@@ -15,6 +15,22 @@ class IndexRequest(BaseModel):
     url: str
 
 
+class QueryRequest(BaseModel):
+    url: str
+    question: str = Field(min_length=1)
+
+
+class RetrievedChunk(BaseModel):
+    text: str
+    start: float
+    end: float
+    distance: float
+
+
+class QueryResponse(BaseModel):
+    chunks: list[RetrievedChunk]
+
+
 class JobCreatedResponse(BaseModel):
     job_id: str
 
