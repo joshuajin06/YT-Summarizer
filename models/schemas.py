@@ -31,6 +31,11 @@ class QueryResponse(BaseModel):
     chunks: list[RetrievedChunk]
 
 
+class ChatResponse(BaseModel):
+    answer: str
+    citations: list[RetrievedChunk]
+
+
 class JobCreatedResponse(BaseModel):
     job_id: str
 

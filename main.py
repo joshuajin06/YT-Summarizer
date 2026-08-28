@@ -2,6 +2,7 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from routers.chat import router as chat_router
 from routers.ingest import router as ingest_router
 from routers.query import router as query_router
 from routers.summarize import router as summarize_router
@@ -31,6 +32,7 @@ app.add_middleware(
 app.include_router(summarize_router)
 app.include_router(ingest_router)
 app.include_router(query_router)
+app.include_router(chat_router)
 
 
 @app.api_route("/", methods=["GET", "HEAD"])
